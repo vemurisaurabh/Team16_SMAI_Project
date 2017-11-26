@@ -5,9 +5,11 @@ import random
 import matplotlib
 from math import e, sqrt, pi
 
+
 def gaussian(x,mu,s):
 	gauss = (1/(sqrt(2*pi)*s))*e**(-0.5*(float(x-mu)/s)**2)
 	return gauss
+
 
 def generategauss(mew=100,sig0=900,sigma2=1000,N=100000,partitionSize=0.1):
 
@@ -42,7 +44,7 @@ def generategauss(mew=100,sig0=900,sigma2=1000,N=100000,partitionSize=0.1):
     xVals=np.array([])
 
     for i in range (0,numPartitions-1):
-        xVals=np.append(xVals,np.random.normal(muVals[i],sigma2,numSamples[i]))
+        xVals=np.append(xVals,np.random.normal(muVals[i],sqrt(sigma2),numSamples[i]))
     
     
     ## Function ends
